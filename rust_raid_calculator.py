@@ -51,7 +51,7 @@ async def help(interaction: discord.Interaction):
                                             f"\n/beancan_grenade (amount of Beancan Grenade)"
                                             f"\n"
                                             f"\n**F1 Grenade :**"
-                                            f"\nf1_grenade (amount of F1 Grenade)"
+                                            f"\n/f1_grenade (amount of F1 Grenade)"
                                             f"\n"
                                             f"\n**Molotov Cocktails :**"
                                             f"\n/molotov_cocktails (amount of molotov cocktails)"
