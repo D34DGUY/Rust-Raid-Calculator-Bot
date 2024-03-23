@@ -65,7 +65,10 @@ async def help(interaction: discord.Interaction):
                                             f"\n**Incendiary Rocket :**"
                                             f"\n/incendiary_rocket (amount of Incendiary Rockets)"
                                             f"\n"
-                                            f"\n**----------------------| DURABILITY |-------------------------**"
+                                            f"\n**Torpedo**"
+                                            f"\n/torpedo (ammount of Torpedoes)"
+                                            f"\n"
+                                            f"\n**----------------------| DURABILITY |-------------------------**"      
                                             f"\n"
                                             f"\n**Wooden Walls :**"
                                             f"\n/wooden_wall (layers of Wooden Walls)"
@@ -96,6 +99,14 @@ async def help(interaction: discord.Interaction):
                                             f"\n"
                                             f"\n**High External Stone Walls :**"
                                             f"\n/high_external_stone_wall (layers of High External Stone Walls)"
+                                            f"\n"
+                                            f"\n**------------------| VEHICLE DURABILITY |---------------------**"
+                                            f"\n"
+                                            f"\n**Bradley APC**"
+                                            f"\n/bradley_apc (number of Bradley APC)"
+                                            f"\n"
+                                            f"\n**Tugboat**"
+                                            f"\n/tugboat (number of Tugboats)"
                                             f"\n"
                                             f"\n"
                                             f"\n"
@@ -276,6 +287,27 @@ async def explosive(interaction: discord.Interaction, amount:int):
                                             f"\nGun Powder : {gun_powder}"
                                             f"\nLow Grade Fuel : {low_grade}"
                                             f"\nMetal : {metal}"))
+
+
+#Torpedo
+@client.tree.command(name="torpedo")
+@app_commands.describe(amount = "Number of torpedoes")
+async def torpedo(interaction: discord.Interaction, amount:int):
+    sulfur = ((amount * 20) * 3)
+    charcoal = ((amount * 30) * 3)
+    metalpipes = (amount * 1)
+    gun_powder = ((amount * 10) * 3)
+    await interaction.response.send_message(embed = discord.Embed(colour=discord.Color.red(), title=f"{amount * 3}x Torpedoes", description="\n"
+                                            f"**RAW COST OF {amount * 3}X TORPEDOES**"
+                                            "\n"
+                                            f"\nSulfur : {sulfur}"
+                                            f"\nCharcoal : {charcoal}"
+                                            f"\nMetal Pipes : {metalpipes}"
+                                            "\n"
+                                            f"\n**MATERIALS YOU NEED TO CRAFT {amount * 3}X TORPEDOES**"
+                                            f"\n"
+                                            f"\nGun Powder : {gun_powder}"
+                                            f"\nMetal Pipes : {metalpipes}"))
 
 
 #incen rocket
@@ -572,6 +604,7 @@ async def sheet_metal_door(interaction: discord.Interaction, layers:int):
     hv_rocket = (layers * 11)
     f1 = (layers * 50)
     he = (layers * 9)
+    torpedoes = (layers * 35)
     await interaction.response.send_message(embed = discord.Embed(colour=discord.Color.red(), title=f"{layers}x Sheet Metal Doors", description="\n"
                                             f"\nRocket : {rocket}"
                                             f"\nTimed Explosive Charge : {c4}"
@@ -581,7 +614,8 @@ async def sheet_metal_door(interaction: discord.Interaction, layers:int):
                                             f"\nMLRS Rockets : {mlrs}"
                                             f"\nHV Rockets : {hv_rocket}"
                                             f"\nF1 Grenade : {f1}"
-                                            f"\nHE Grenade : {he}"))
+                                            f"\nHE Grenade : {he}"
+                                            f"\nTorpedoes : {torpedoes}"))
 
 
 #Garage Door
@@ -622,6 +656,7 @@ async def armored_door(interaction: discord.Interaction, layers:int):
     hv_rocket = (layers * 42)
     f1 = (layers * 200)
     he = (layers * 36)
+    torpedoes = (layers * 125)
     await interaction.response.send_message(embed = discord.Embed(colour=discord.Color.red(), title=f"{layers}x Armored Doors", description="\n"
                                             f"\nRocket : {rocket}"
                                             f"\nTimed Explosive Charge : {c4}"
@@ -631,7 +666,8 @@ async def armored_door(interaction: discord.Interaction, layers:int):
                                             f"\nMLRS Rockets : {mlrs}"
                                             f"\nHV Rockets : {hv_rocket}"
                                             f"\nF1 Grenade : {f1}"
-                                            f"\nHE Grenade : {he}"))
+                                            f"\nHE Grenade : {he}"
+                                            f"\nTorpedoes : {torpedoes}"))
 
 
 #Wooden Door
@@ -651,6 +687,7 @@ async def wooden_door(interaction: discord.Interaction, layers:int):
     hv_rocket = (layers * 4)
     f1 = (layers * 23)
     he = (layers * 3)
+    torpedoes = (layers * 6)
     await interaction.response.send_message(embed = discord.Embed(colour=discord.Color.red(), title=f"{layers}x Wooden Doors", description="\n"
                                             f"\nIncendiary Rocket : {incen_rocket}"
                                             f"\nMolotov Cocktail : {molotov}"
@@ -664,7 +701,8 @@ async def wooden_door(interaction: discord.Interaction, layers:int):
                                             f"\nMLRS Rockets : {mlrs}"
                                             f"\nHV Rockets : {hv_rocket}"
                                             f"\nF1 Grenade : {f1}"
-                                            f"\nHE Grenade : {he}"))
+                                            f"\nHE Grenade : {he}"
+                                            f"\nTorpedoes : {torpedoes}"))
 
 
 #High External Wooden Wall
@@ -722,6 +760,61 @@ async def high_external_stone_wall(interaction: discord.Interaction, layers:int)
                                             f"\nMLRS Rockets : {mlrs}"
                                             f"\nHV Rockets : {hv_rocket}"
                                             f"\nF1 Grenade : {f1}"
+                                            f"\nHE Grenade : {he}"))
+
+
+#Vehicle----------------------------------------------------------------------------------------------------------------
+
+
+#Bradley APC
+@client.tree.command(name="bradley_apc")
+@app_commands.describe(number = "number of bradley APC")
+async def bradley_apc(interaction: discord.Interaction, number:int):
+    rocket = (number * 11)
+    c4 = (number * 3)
+    explo_ammo = (number * 571)
+    mlrs = (number * 7)
+    satchel_charge = (number * 20)
+    beancan_grenade = (number * 191)
+    hv_rocket = (number * 7)
+    f1 = (number * 40)
+    he = (number * 82)
+    await interaction.response.send_message(embed = discord.Embed(colour=discord.Color.red(), title=f"{number}x Bradley APC", description="\n"
+                                            f"\nHV Rockets : {hv_rocket}"
+                                            f"\nRocket : {rocket}"
+                                            f"\nTimed Explosive Charge : {c4}"
+                                            f"\nExplosive Ammo : {explo_ammo}"
+                                            f"\nF1 Grenade : {f1}"                                                                                                            
+                                            f"\nSatchel Charge : {satchel_charge}"
+                                            f"\nBeancan Grenade : {beancan_grenade}"
+                                            f"\nMLRS Rockets : {mlrs}"
+                                            f"\nHE Grenade : {he}"))
+
+
+#TugBoat
+@client.tree.command(name="tugboat")
+@app_commands.describe(number = "number of tugboats")
+async def tugboat(interaction: discord.Interaction, number:int):
+    rocket = (number * 16)
+    c4 = (number * 4)
+    explo_ammo = (number * 769)
+    mlrs = (number * 10)
+    satchel_charge = (number * 27)
+    beancan_grenade = (number * 261)
+    hv_rocket = (number * 11)
+    f1 = (number * 68)
+    he = (number * 120)
+    torpedoes = (number * 12)
+    await interaction.response.send_message(embed = discord.Embed(colour=discord.Color.red(), title=f"{number}x Tugboats", description="\n"
+                                            f"\nTorpedoes : {torpedoes}"
+                                            f"\nHV Rockets : {hv_rocket}"
+                                            f"\nRocket : {rocket}"
+                                            f"\nTimed Explosive Charge : {c4}"
+                                            f"\nExplosive Ammo : {explo_ammo}"
+                                            f"\nF1 Grenade : {f1}"                                                                                                            
+                                            f"\nSatchel Charge : {satchel_charge}"
+                                            f"\nBeancan Grenade : {beancan_grenade}"
+                                            f"\nMLRS Rockets : {mlrs}"
                                             f"\nHE Grenade : {he}"))
 
 
