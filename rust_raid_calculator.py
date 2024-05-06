@@ -6,11 +6,9 @@ from itertools import cycle
 import os
 
 intents = discord.Intents.default()
-intents.message_content = True
-intents.members = True
+intents.members = False
 
-
-client = commands.Bot(intents=discord.Intents.all(), command_prefix = '!')
+client = commands.Bot(command_prefix=',', intents=intents)
 
 
 bot_status = cycle(["/help for help", "/help for help", "/help for help", "/help for help"])
@@ -819,5 +817,4 @@ async def tugboat(interaction: discord.Interaction, number:int):
 
 
 client.run("TOKEN")
-
 
