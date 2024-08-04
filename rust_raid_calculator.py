@@ -108,7 +108,7 @@ async def help(interaction: discord.Interaction):
                                             f"\n"
                                             f"\n"
                                             f"\n"
-                                            f"\n*made by Nomad 1-1*"))
+                                            f"\n*created by Nomad 1-1*"))
 
 
 #Boom Cost : -----------------------------------------------------------------------------------------------------------
